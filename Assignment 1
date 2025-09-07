@@ -1,0 +1,19 @@
+import java.util.Scanner;
+public class Debug {
+    public static void main(String[] args) {
+     //finish this one for me by receiving and printing the user's age back to them
+     Scanner sc = new Scanner(System.in);
+     System.out.println("How old are you?");
+     String input = sc.nextLine();
+     System.out.println(input);
+
+    //can you do some math for me? take these variables and print out the sum of them!
+     int num1 = 10;
+     int num2 = 37;
+     System.out.println(num1+num2);
+
+ //?  I learned that the first thing in each line has to be declaring what is coming next.
+ // for instance, you put int before the user gives an integer, and same for when theres a string incoming
+ // I also learned that you also can print things on the same line if you dont put ln after print
+ }
+}

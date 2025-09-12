@@ -1,0 +1,40 @@
+// so the way that this works is simple, i import a scanner and name it as sc, and I begin by setting my score variable to zero bc i am going to add to it as the game goes on
+// then im going to ask my first question, and on the next line I will set my input equal to what is input on the next line.  
+// from there I ask the if statement to check if the user input is equal to my answer, if not the else is triggered, not points are awarded and we go to next question
+// I then repeat that, and the program will flow into the next questions and ask the questions, and check the answers two more times
+// then at the end, the system will print the user score that has been added to from the beggining if the user got stuff right
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+     Scanner sc = new Scanner(System.in);
+     Integer Score = 0;
+     System.out.println("what is the sum of 12+3?");
+     Integer input = sc.nextInt();
+     if (input == 15) {
+        System.out.println("Correct!");
+            Score=Score+10;
+        }
+    else {
+        System.out.println("wrong :(");}
+    
+    System.out.println("what is the difference of 8-4?");
+     Integer input2 = sc.nextInt();
+     if (input2 == 4) {
+        System.out.println("Correct!");
+            Score=Score+10;
+        }
+    else {
+        System.out.println("wrong :(");}
+    
+    System.out.println("what is 6x3");
+     Integer input3 = sc.nextInt();
+     if (input3 == 18) {
+        System.out.println("Correct!");
+            Score=Score+20;
+        }
+    else {
+        System.out.println("wrong :(");}
+
+    System.out.println("your final score is " + Score + " points");
+ }
+}

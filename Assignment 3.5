@@ -1,0 +1,49 @@
+import java.util.Scanner;
+class Debug {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter your yearly salary");
+        int salary = sc.nextInt();
+        //the variable salary is tied to the users next input on the line below after the system asked what is was
+        System.out.println("Enter your yearly expenses");
+        int expenses = sc.nextInt();
+        //the variable expenses is tied to the input of the uses expenses after being prompted on the line after the salary one
+        System.out.println("Enter the amount of people in your household");
+        int people = sc.nextInt();
+        // people is the variable of the number of people living in your house after the user as asked
+
+        int additionalTaxReduction = 0;
+        //the current tax reduction is pre set to zero
+        for(int i = 0; i <= people; i++){
+            additionalTaxReduction += 2;
+        }
+        //this function will run while i is less than the number of people living in the house, which we set after asking the user how many people live with them
+        //it adds +2 to the additional tax reduction for each person (each time the function runs)
+
+        int taxReduction = 0;
+        //tax reduction is pre set to zero
+
+        taxReduction += additionalTaxReduction;
+        //tax reduction gets set to the value of the additional tax reduction that we determind before
+        if(salary > 50000 && people > 3){
+            taxReduction += 10;
+            System.out.println("You get a " + taxReduction+ "% reduction on taxes.");
+        } else if(salary > 30000 && people > 4){
+            taxReduction += 9;
+            System.out.println("You get a " + taxReduction+ "% reduction on taxes.");
+        } else if(salary > 70000 && people > 2){
+            taxReduction += 5;
+            System.out.println("You get a " + taxReduction+ "% reduction on taxes.");
+        } else {
+            System.out.println("No applicable reduction on taxes found.");
+        }
+        // this is just a basic if else statement.  
+        //it goes through the various tax brackets to see if your salary and household people equals specfified amounts
+
+
+        // I commemented a lot about the variables because I think that if I were looking back, i would want clarification to see what the variables are holding
+        //this would be so that i do not need to re read all my code to see exactly what is coming from what and what prompts what bc some of the names arent that specific for this example
+        // I gave an overview for the if statement part because I think that it was very self explanatory, and i just gave a little comment to clarify anything
+
+    }
+}

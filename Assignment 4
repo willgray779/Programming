@@ -1,0 +1,53 @@
+public class Main {
+ public static void main(String[] args) {
+ //Don't let the size of this scare you! no matter how big an array is, it all works the same!
+    int[] myArray = {10,3,295,38,20,3,4,267,2445,10,5566,87,93,17,10,2,87,267,3176,3,82};
+ //you cannot use the array util. Do this one by hand :(
+
+
+    for (int i = 0; i < myArray.length; i++) 
+//this function basically just runs through every digit in my aray
+    {
+        int times = 0;
+        //times is how many times the same number comes up, and it will get added to later when a number comes up twice
+
+        for (int j = 0; j < myArray.length; j++) 
+//this does the same, but it runs through every one while the top one stops on a single one to see how many matches there are
+        {
+            if (myArray[i] == myArray[j])
+
+            {
+                times++;
+            }
+            //this will add a number to "times" each time that there is a number in j that equals i.  
+            //i goes through one by one, and j goes through all at once and sees if any are duplicates
+        }
+
+        boolean Duplicate = false;
+        for (int x = 0; x < i; x++) 
+//this required some googling, because i was not sure how to effectively mark each one that is repeated, google said to use a boolean and set it to false and change that once the condition is met
+        {
+            if (myArray[x] == myArray[i]) 
+//this checks to see if the number is repeated earlier, and only queues the function to "break" once its identified
+            {
+                Duplicate = true;
+//this marks a duplicate so that it is not repeated later
+                break;
+//end the code, so that it does not loop infinietly
+            }
+        }
+
+        if (times > 1 && !Duplicate) 
+        {
+            System.out.println(myArray[i] + " is duplicated " + times);
+        }
+// this one required a lot of googling
+//i googled how to check for the duplicates that were identified previously, and how to make sure that each one is only printed once with the number of times it comes up
+// so i learjed the !duplicate function that is used to make sure that they arent printed more than once (not duplicate)
+    }
+
+  
+ }
+}
+//this taught me how to use the embeded loops, for every single number, i individually ran through each number in the array to check duplicaqtes.  there may be an easier way, but this taught me how to effectively use an embeded loop
+//additionally, i learned about the !duplicate, and how the exclamation point means "not".  

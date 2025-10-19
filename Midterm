@@ -1,0 +1,113 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        List<Integer> values = Arrays.asList
+        (1, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 250, 500);
+
+        List<Integer> shuffled = new ArrayList<>(values);
+        Collections.shuffle(shuffled);
+// google helped me find a function that shuffles the inputted list.  shuffled is a pretty self explanatory name for the shuffled list
+        
+       Map<Integer, Integer> cases = new LinkedHashMap<Integer, Integer>();
+//the map lets me assign a chronological number to my values in the cases, so i can give the cases numbers 1-26
+//i googled how to keep my cases in numerical order, and it told me to use a linkedhashmap
+        for (int i = 1; i <= 26; i++) {
+            cases.put(i, shuffled.get(i - 1));
+        }//this loops thru 1-26 cases and gives them a random number
+
+        System.out.println("theres 26 cases w/ random dollar amounts assigned");
+
+        System.out.print("pick a case between 1 and 26 that you think has the highest amount of money");
+        int mycase = scanner.nextInt();
+        int mycaseValue = cases.remove(mycase);
+//this removes the case the user selects, and stores that for the end of the game
+
+        int[] rounds = {6, 5, 4, 3, 2, 1, 1, 1, 1};
+        
+        boolean accept = false;
+
+        for (int round = 0; round < rounds.length; round++) 
+//this function finds the legnth of how many total rounds are in the list "rounds"
+        {
+            int numcases = rounds[round];
+            if (numcases > cases.size()) numcases = cases.size();
+//this function finds how many cases are you meant to open in your current round bc you open a dif number each round
+//num cases is how many cases to open if that isnt self explanatory enough
+
+            System.out.println("You gotta open " + numcases + " cases this round.");
+
+            for (int i = 0; i < numcases;) 
+//this repeats while you still have cases to open in the round
+            
+            {
+                System.out.println("remaining cases " + cases.keySet());
+//I had to use keyset here bc cases on its own was printing the number case alongside the dollar value of the case which ruins the ambigutiy of the game
+                System.out.print("pick a case from that list");
+                int pick = scanner.nextInt();
+                
+                int val = cases.remove(pick);
+                System.out.println("that case had " + val);
+               i++;
+//I had to add the i++ here bc if it was in the for loop, it would loop until there were no more cases to open in the whole game
+            } 
+            
+
+            
+            double offer = 0;
+//this sets a number equal to the average of remaining cases, and since its an average, its not going to be a nice int, so we have to use double
+                for (int value : cases.values()) {
+                    offer += value;}
+//this for loop goes through all the values in the list remaining and adds them
+                offer /= cases.size();
+//lastly, this takes the sum (offer) and divides that by the number of remaining cases to get the avg. which becomes our new offer
+
+            System.out.println("offer:" +offer);
+            System.out.println("deal or no deal?");
+            String choice = scanner.next();
+
+            if (choice.equals("deal")) 
+            {
+                accept = true;
+                System.out.println("deal, game over you win "+ offer +"!");
+                break;
+//break ends this loop and brings you to the final game loop below
+            }
+           
+        }
+    
+     
+        if (!accept) 
+//this is essensially the else for the previous thing, bc if you didnt accept, this runs
+        {
+            
+            {int lastcase = 0;
+                for (int c : cases.keySet()) //this loops thru the remainaing cases and there should only be one aside from the one u picked at the start
+                {
+                lastcase = c;}//this assigns the last case value to the variable lastcase bc its the last case remaining
+            System.out.println("you only have one case left");
+            System.out.print("do you wanna swap yours with this one?");
+            String swap = scanner.next();
+            if (swap.equals("yes")) //this just checks to see if the user said yes, if they said anything but yes, it will trigger the else meaning they dont wanna swap
+{
+                System.out.println("game over, your final score is " + lastcase);
+            }
+            else{
+                System.out.println("game over, your final score is "+ mycaseValue);
+            }//these two options just let the user pick if they want their case or the other one
+            //then they give a final game message and the dollar value of their case which is their "final score" of sorts
+
+        }
+        }
+}
+
+}

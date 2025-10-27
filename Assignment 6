@@ -41,11 +41,11 @@ void freelunch(){
     Random random = new Random();
 //random is the new variable that im declaring that is going to be a random number 1-5
 // int didnt work for this, so i had to google this, and i had to use "Random"          
-    int freeLunchId = random.nextInt(5) +1; 
+    int freeid = random.nextInt(5) +1; 
 //i googled how to get a random number 1-5 and it said to use random.nextint, i had no idea what that did before this
 //I have to add the plus 1 outside of the thing bc i kept running it and getting 0 bc the range was 0-4 bc the first 5 int's in computer language start at 0
 //the plus one makes it 1-5, and it has to be outside the parenthesis
-    if (this.id == freeLunchId) {
+    if (this.id == freeid) {
         System.out.println(name + " free lunch");
     } else {
         System.out.println(name + " no free lunch");

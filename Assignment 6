@@ -1,0 +1,60 @@
+public class App {
+    public static void main(String[] args)  {
+    
+    
+    student student1=new student("Will", "sophomore", 4.0, 1);
+    student student2=new student("marina", "freshman", 3.9, 2);
+    student student3=new student("Owen", "freshman", 3.8, 3);
+    student student4=new student("Doreen", "senior", 2.1, 4);
+    student student5=new student("John", "junior", 2.0, 5);
+    
+    student1.freelunch();
+    student1.honors();
+
+
+}
+}
+import java.util.Random;
+
+public class student{
+ String name;
+ String year;
+ double gpa;
+ int id;
+ public student(String n, String y, double g, int i){
+ name = n;
+ year = y;
+ gpa = g;
+ id = i;
+ }
+
+void honors(){
+    if (this.gpa>3.6) {
+        System.out.println("Honors");
+
+}else{
+    System.out.print("not honors");
+}
+}
+
+void freelunch(){
+    Random random = new Random();
+//random is the new variable that im declaring that is going to be a random number 1-5
+// int didnt work for this, so i had to google this, and i had to use "Random"          
+    int freeLunchId = random.nextInt(5) +1; 
+//i googled how to get a random number 1-5 and it said to use random.nextint, i had no idea what that did before this
+//I have to add the plus 1 outside of the thing bc i kept running it and getting 0 bc the range was 0-4 bc the first 5 int's in computer language start at 0
+//the plus one makes it 1-5, and it has to be outside the parenthesis
+    if (this.id == freeLunchId) {
+        System.out.println(name + " free lunch");
+    } else {
+        System.out.println(name + " no free lunch");
+    }
+}
+}
+
+//i put both classes in this same repository, but on vs code, they are on the separate tabs things that you showed us in class
+//i also didnt put the functcion call for every student in my app which is my main
+//if you wanted to do it for every student, youd just put student whatever dot whatever function you want
+//for this assignment, i learned how to make a class, and function within that class that runs code to check criteria about the class, for example checking if theyre honors, or free lunch
+//i also learned how to use random.nextint.  i thought getting a random number would be easier, but that lowkey took like 15 mins and a few google searches

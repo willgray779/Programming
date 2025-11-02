@@ -1,19 +1,16 @@
-Enemy basicEnemy = new Enemy(50, 10);
-        basicEnemy.attack();
+public class Enemy {
+    int health;
+    int damage;
 
-        // create a fire and an ice wizard and call all functions
-        Wizard fireWizard = new Wizard(80, 20, "fire");
-        fireWizard.attack();
-        fireWizard.damageType();
-
-        Wizard iceWizard = new Wizard(70, 18, "ice");
-        iceWizard.attack();
-        iceWizard.damageType();
-
-        // create a goblin and call its functions
-        Goblin goblin = new Goblin(40, 12);
-        goblin.attack();
+    public Enemy(int h, int d){
+        health = h;
+        damage = d;
     }
+
+    void attack(){
+        System.out.println("the enemy attacks");
+    }
+}
 
 public class Goblin extends Enemy{
 

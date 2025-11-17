@@ -6,23 +6,23 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args){
-        List<String> honors = new ArrayList<>();
+        List<String> honors=new ArrayList<>();
         //this list will hold the students with honors gpas
-        int total = 0; 
+        int total=0; 
         //this will go up each time we check a student, because you want the total number at the end
-        File inputfile = new File("C:/Users/willi/Downloads/Bus Forms 2025/main/src/file.txt");
+        File inputfile=new File("C:/Users/willi/Downloads/Bus Forms 2025/main/src/file.txt");
         //it was not running "file.txt" so i copied the path like you did in class, so idk if this will run for you
         try {
-            Scanner input = new Scanner(inputfile);
+            Scanner input=new Scanner(inputfile);
             while(input.hasNextLine()){
             //tjis runs continuously while there are still extra lines on the text file, so until it reaches the last gpa on the list
-                String name = input.nextLine(); 
+                String name=input.nextLine(); 
                 //the file is formatted with name on one line, and their respective gpa on the follwing
-                double gpa = Double.parseDouble(input.nextLine());
+                double gpa=Double.parseDouble(input.nextLine());
                 //this takes the line below the name just given to associate the name with their gpa even tho they arent on same line
                 //doing this the regular way wasnt working because the text file numbers are strings, so google said to use parse double which converts them to doubles
                 total++;
-                if(gpa > 3.5){
+                if(gpa>3.5){
                     honors.add(name); 
                     //adds students with honors gpa to the honors list to be printed at the end
                 }

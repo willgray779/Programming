@@ -1,0 +1,79 @@
+/*
+Remember that stacks/queues/linkedlists all work super similarly to arraylists, so i bet you $10 you could reference earlier HW if you get stuck....
+
+1. Take the stack I created and find the maximum and minimum value
+2. Find out how many elements were in the stack
+
+3. Find the middle value of the linkedlist I created
+
+4. Implement a real life example of any of the structures and do at least 3 operations to it
+*/
+
+import java.util.Stack;
+
+import java.util.LinkedList;
+
+public class Main {
+    public static void main(String[] args) {
+        Stack<Integer> stax = new Stack<>();
+        
+        stax.push(70);
+        stax.push(34);
+        stax.push(807);
+        stax.push(61);
+        stax.push(28);
+        stax.push(563);
+        stax.push(492);
+        stax.push(386);
+
+        int max=stax.peek();
+        int min=stax.peek();
+        for (int x : stax){
+            if (x>max) max=x;
+            if (x<min) min=x;}
+//i used a for loop to look at every individual value, and see if its greater than or less than the previous to determine the max/min (process of elimination)
+            System.out.println("the max is: "+max);
+            System.out.println("the min is: "+min);
+            System.out.println("there are "+ stax.size()+" elements in the stack");
+        
+
+        
+      
+        
+        
+        LinkedList<Integer> linky = new LinkedList<>();
+
+        linky.add(10);
+        linky.add(20);
+        linky.add(30);
+        linky.add(40);
+        linky.add(50);
+
+        int middlenum=linky.size()/2;
+//since ur dividing by 2, this gives the middle index number, but you need to get that which i do below to get the actual number, not the index number
+        int middle=linky.get(middlenum);
+        System.out.println("middle number: " +middle);
+
+        LinkedList<String> rollercoaster = new LinkedList<>();
+
+        rollercoaster.add("rider1");
+        rollercoaster.add("rider2");
+        rollercoaster.add("rider3");
+
+        System.out.println(rollercoaster);
+
+        rollercoaster.pop();
+//first person in line gets on
+        System.out.println(rollercoaster);
+
+//another person gets in line in the back
+        rollercoaster.add("rider4");  
+        System.out.println(rollercoaster);
+
+//ride closes
+        rollercoaster.clear();
+        System.out.println("sorry ride is closed "+rollercoaster);
+
+
+    }
+}
